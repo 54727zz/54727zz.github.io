@@ -1,0 +1,110 @@
+/* 柔和的浅粉色宽版滚动条 */
+::-webkit-scrollbar {
+    width: 16px; /* 加宽到16px */
+    height: 16px; /* 垂直滚动条也加宽 */
+    background-color: #fff8fb; /* 极浅的粉白背景 */
+}
+
+/* 滚动条轨道 - 更柔和 */
+::-webkit-scrollbar-track {
+    border-radius: 10px; /* 更大的圆角 */
+    background: rgba(255, 248, 251, 0.8); /* 半透明效果 */
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 6px rgba(247, 218, 225, 0.2);
+}
+
+/* 滚动条滑块 - 非常浅的粉色调渐变 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px; /* 更大圆角匹配加宽 */
+    background: linear-gradient(135deg, 
+        #fff0f5 0%,       /* 更浅的粉白 */
+        #ffeaf0 25%,      /* 非常浅的粉 */
+        #ffd6e3 50%,      /* 柔和的浅粉 */
+        #ffc6d9 75%       /* 浅浅的樱花粉 */
+    );
+    background-image: -webkit-linear-gradient(
+        45deg, 
+        rgba(255, 255, 255, 0.6) 25%, /* 增加高光透明度使其更柔和 */
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.6) 50%, 
+        rgba(255, 255, 255, 0.6) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    border: 2px solid rgba(255, 255, 255, 0.8); /* 更明亮的边框 */
+    box-shadow: 0 2px 4px rgba(242, 200, 210, 0.2); /* 更轻柔的阴影 */
+    transition: background 0.4s ease;
+}
+
+/* 悬停效果 - 色调几乎不变，稍深一点 */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, 
+        #ffeef3 0%, 
+        #ffe3eb 25%, 
+        #ffd5e1 50%, 
+        #ffc1d6 75%
+    );
+}
+
+/* 活动状态效果 */
+::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, 
+        #ffc6d9 0%, 
+        #ffb8cf 25%, 
+        #ffaac6 50%, 
+        #ff9cb8 75%
+    );
+}
+
+/* 滚动条角落 */
+::-webkit-scrollbar-corner {
+    background-color: rgba(255, 248, 251, 0.9); /* 更浅 */
+}
+
+/* Firefox 滚动条支持 - 适配浅色 */
+* {
+    scrollbar-width: thick; /* 使用thick使Firefox滚动条更宽 */
+    scrollbar-color: #ffd0db #fff8fb; /* 搭配浅色方案 */
+}
+
+/* 文本选中效果 - 配合浅色主题 */
+::selection {
+    color: #fff;
+    background-color: rgba(255, 182, 199, 0.7); /* 增加透明度 */
+    text-shadow: 0 1px 1px rgba(200, 150, 165, 0.2);
+}
+
+/* 移动设备兼容 - 更小的滚动条 */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* 添加滚动条平滑过渡 */
+html, body {
+    scroll-behavior: smooth;
+}
+
+/* 浅粉色主题的淡入背景 */
+body {
+    background: linear-gradient(to bottom right, 
+        rgba(255, 248, 251, 0.4), 
+        rgba(255, 240, 245, 0.2), 
+        rgba(255, 248, 251, 0.1)
+    ) no-repeat fixed;
+    animation: fadeInPastel 1.2s ease;
+}
+
+@keyframes fadeInPastel {
+    from { 
+        background-position: 0 -20%;
+        opacity: 0.9;
+    }
+    to { 
+        background-position: 0 0;
+        opacity: 1;
+    }
+}
