@@ -19,24 +19,27 @@
   <meta name="author" content="GoZ_Zhou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="hi. 这是一如既往的一个早晨，经历了昨天辗转反侧近一个小时才入睡但是睡眠质量意外地不错的一晚，我的心情指数中等偏下。我第一次有强烈的想要一个人住的想法。 在家里在家里，我没有独立的房间，学习是在客厅里，爸妈有时候会在我身边转悠一天，他们看不懂我在做什么，只是一味地看着。说起来两代人之间的gap真的是有海岸线那么长，好在我已经渐渐明白家庭对我造成了哪一些影响，让我拥有了哪一些特质或习性，但就像软件">
+    <meta name="description" content="最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？） 涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下） 撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~ 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my-broken">
-<meta property="og:url" content="http://example.com/2025/08/18/my-broken/index.html">
+<meta property="og:title" content="word-embedding">
+<meta property="og:url" content="http://example.com/2025/09/03/word-embedding/index.html">
 <meta property="og:site_name" content="一只粥">
-<meta property="og:description" content="hi. 这是一如既往的一个早晨，经历了昨天辗转反侧近一个小时才入睡但是睡眠质量意外地不错的一晚，我的心情指数中等偏下。我第一次有强烈的想要一个人住的想法。 在家里在家里，我没有独立的房间，学习是在客厅里，爸妈有时候会在我身边转悠一天，他们看不懂我在做什么，只是一味地看着。说起来两代人之间的gap真的是有海岸线那么长，好在我已经渐渐明白家庭对我造成了哪一些影响，让我拥有了哪一些特质或习性，但就像软件">
+<meta property="og:description" content="最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？） 涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下） 撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~ 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/08/18/my-broken/run.JPG">
-<meta property="article:published_time" content="2025-08-18T01:22:17.000Z">
-<meta property="article:modified_time" content="2025-08-18T02:27:00.460Z">
+<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/one.png">
+<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/two.png">
+<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/there.png">
+<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/four.png">
+<meta property="article:published_time" content="2025-09-03T07:49:16.000Z">
+<meta property="article:modified_time" content="2025-09-03T08:01:19.742Z">
 <meta property="article:author" content="GoZ_Zhou">
-<meta property="article:tag" content="心情日记">
+<meta property="article:tag" content="NLP">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2025/08/18/my-broken/run.JPG">
+<meta name="twitter:image" content="http://example.com/2025/09/03/word-embedding/one.png">
   
   
   
-  <title>my-broken - 一只粥</title>
+  <title>word-embedding - 一只粥</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -219,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="my-broken"></span>
+            <span id="subtitle" data-typed-text="word-embedding"></span>
           
         </div>
 
@@ -230,8 +233,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-18 09:22" pubdate>
-          2025年8月18日 上午
+        <time datetime="2025-09-03 15:49" pubdate>
+          2025年9月3日 下午
         </time>
       </span>
     
@@ -253,7 +256,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -299,27 +302,46 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">my-broken</h1>
+            <h1 id="seo-header">word-embedding</h1>
             
             
               <div class="markdown-body">
                 
-                <p>hi.</p>
-<p>这是一如既往的一个早晨，经历了昨天辗转反侧近一个小时才入睡但是睡眠质量意外地不错的一晚，我的心情指数中等偏下。我第一次有强烈的想要一个人住的想法。</p>
-<h4 id="在家里"><a href="#在家里" class="headerlink" title="在家里"></a>在家里</h4><p>在家里，我没有独立的房间，学习是在客厅里，爸妈有时候会在我身边转悠一天，他们看不懂我在做什么，只是一味地看着。说起来两代人之间的gap真的是有海岸线那么长，好在我已经渐渐明白家庭对我造成了哪一些影响，让我拥有了哪一些特质或习性，但就像<strong>软件测试</strong>一样，更多的bug可能是偶发的、不被察觉的，不知道哪天我才能发觉、测试、修复、发布产品。</p>
-<p>世界一年，家里一天。我的家人和家庭是不会变了，有时候让我觉得很恐惧，像是回去以后，我的人生就会停滞不前，状似前人。所以每当有人问我放假回家吗，我都很疑惑为什么要回去。对于幸福的小孩来说，家或许是港湾吧，但对于我来说更像是一个不知道什么时候爆炸的定时炸弹，使我越长大越不敢靠近。</p>
-<p><em>这竟是第一次我描述对于家庭的详细的感受并发布，真是一个成就啊~</em></p>
-<h4 id="在宿舍"><a href="#在宿舍" class="headerlink" title="在宿舍"></a>在宿舍</h4><p>在宿舍和学校，我们身边是同龄人，是朋友，或者只是室友，同学。幸福的时刻是有的，11点爬上床和室友聊天，她很少地吐露出对于时间的焦虑和像我一样对于陪伴的渴望，我们聊了很久，彼此都向往的<em>恋爱</em>也不知何时到来，但那时刻似乎恋爱并不重要，因为<strong>朋友很重要。</strong></p>
-<p>而昨天她在11点之后还在学习，有翻书写字的声音，动静很小，但我仍然焦虑难耐一直没法入睡。想到前两天另一个朋友无奈回家备考，我还笑他说睡不好还要起得早，真可怜TT，结果这事就发生在我身上了。（扶额苦笑）</p>
-<p>下次只能提前备好耳塞和眼罩了。毕竟我们没法改变别人，只能改变自己。</p>
-<h4 id="和朋友"><a href="#和朋友" class="headerlink" title="和朋友"></a>和朋友</h4><p>想起最近和另一位朋友一起吃饭也聊了很多，她因为朋友的事情而感到内耗，激发出了写作的欲望，果然世上之事祸福相依。我本也有很多感受，但昨天太忙，没有思路，便未能下笔。</p>
-<p>当我们不主动和世界链接时，我们彼此是孤立的。但当我们互相阐述感受的时候，我们彼此又那么相似。相似到会因为同样的事情，比如失恋、对于朋友的占有欲、情感忽视的痛苦、倾诉发泄的欲望，而感受得相似。这实在太过神奇。朋友向我倾诉的感受我都体会过，痛苦过，但我聆听的时候并不觉痛苦了，因为一个人的时光已然让我发觉了那些情绪，默默接受并消化了他们。</p>
-<p>昨天听了<strong>杨天真的博客</strong>：</p>
-<p>“我们有讨厌任何人，喜欢任何人的权利，不必因此难堪或愧疚。”</p>
-<p>“有人带着目的接近你，或是想向你学到什么，或是为了你的情绪、价值。如果你想给，那便大大方方的；如果你不想，那就说出来。我们要接受别人的拒绝，当然也可以拒绝别人。”</p>
-<p>当我感受到我不喜欢的感受时，我会以自己为主，不小心伤害了别人又如何呢，我只能抱歉了。立下一个flag吧，如果下次朋友向我索取能量而我已自身难保，我便说拒绝。防止之前让自己陷入“空心”的痛苦。<strong>我要好好保护自己，我一定是最重要的，我一定是自己的第一顺位。如果别人都不爱我，那我更要爱自己。</strong> 我坚信。</p>
-<p>期待一下一个人住的时光。</p>
-<p><img src="/2025/08/18/my-broken/run.JPG" srcset="/img/loading.gif" lazyload alt="逃离"></p>
+                <p>最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？）</p>
+<p>涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下）</p>
+<p>撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~</p>
+<h2 id="1、one-hot独热编码"><a href="#1、one-hot独热编码" class="headerlink" title="1、one-hot独热编码"></a>1、one-hot独热编码</h2><p>一个非常非常常见的嘉宾——one-hot!!!!</p>
+<p>可以说他是word embedding之间的一个常用手段，将每个词都变成互相正交的向量。</p>
+<p>如果有n个词（n维），那么每个向量就有n-1个0和1个1（能懂吗？？能懂吗？？？）</p>
+<p>每个向量都是正交的，张成一个n维空间。</p>
+<p>也可以这么想，这个向量组可以组成一个单位矩阵E的形状。</p>
+<p><img src="/2025/09/03/word-embedding/one.png" srcset="/img/loading.gif" lazyload alt="one hot"></p>
+<p>这里其实一个很大的弱点就是他能方便的<strong>表示“独立的单词”</strong>，但<strong>不能表示“上下文”</strong>，而<strong>上下文</strong>是机器理解文本的重要途经。相似和相近的词应该关系更加紧密，即空间上**“位置更近”**。</p>
+<p>独热编码只用到n维中的一维，其他都是0，未免有些浪费。既然我们已经有n维空间了，那么是否能充分利用向量空间，<strong>在高维空间中也表示出彼此之间的距离</strong>呢？</p>
+<p><img src="/2025/09/03/word-embedding/two.png" srcset="/img/loading.gif" lazyload alt="离散与连续"></p>
+<h2 id="2、word-embedding"><a href="#2、word-embedding" class="headerlink" title="2、word embedding"></a>2、word embedding</h2><p>one-hot的表示方法是离散表示，我们要重点关注的<strong>word2vec是分布式连续表示</strong>。</p>
+<p>Harris 在 1954 年提出的分布假说（ distributional hypothesis）：<strong>上下文相似的词，其语义也相似。</strong></p>
+<p><strong>设有m个单词的单词表，嵌入的向量维度是n</strong>。（m&gt;&gt;n）</p>
+<p>1、很多个单词共同在一个向量空间内，所以他们彼此一定不是线性无关的（否则就是独热编码，张成n维空间了），<strong>一定线性相关</strong>。</p>
+<p>2、整个单词表一定不满秩，r(a1…am) &lt;&#x3D; n &lt;&lt; m</p>
+<p>3、每一维的数都有自己的意义，也可以计算欧式距离来表示两个词之间的含义是否相近。</p>
+<p>比如：</p>
+<p>我们有一个词汇表 <code>m = 50,000</code> 个单词，我们选择用 <code>n = 300</code> 维的向量来表示每个单词。</p>
+<p>训练完成后，你会得到一个 <code>50,000 x 300</code> 的矩阵。这个矩阵的每一行就是一个单词的向量表示。这里的每一个数都是有意义的。</p>
+<p>（哈哈哈哈哈dbq我用画板写了很丑的例子哈哈哈哈哈哈哈哈）</p>
+<p><img src="/2025/09/03/word-embedding/there.png" srcset="/img/loading.gif" lazyload alt="example"></p>
+<p>我们使用的是现成训练好的词汇表，如： <strong>Google、Stanford、Facebook 的预训练词向量，</strong>  已经基于海量语料训练好了。<strong>我们并不关心这个神经网络的预测结果，我们只关心它的副产物——网络权重，这些权重就是我们想要的词向量。</strong></p>
+<p>然后进一步的话就是佬的文章里提到两种模型（训练方法）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Christbao/p/12022218.html">word embedding 精要整理 - Christbao - 博客园</a></p>
+<p>Word2Vec模型中，<strong>主要有Skip-Gram和CBOW两种模型</strong>，从直观上理解，Skip-Gram是给定input word来预测上下文。</p>
+<h2 id="3、ELMo"><a href="#3、ELMo" class="headerlink" title="3、ELMo"></a>3、ELMo</h2><p>想象一下文章中有<strong>多义词的情况</strong>，一个单词有多个意思，也就是说基于多种上下文可能有多种含义，这时候单一的word2vec可能会导致歧义。</p>
+<p>————–2025&#x2F;9&#x2F;1 写累了歇一下（）</p>
+<p>然后就在ELMo一文中解决了这个问题，很像<strong>动态word2vec</strong>，他可以基于不同上下文改变原有的word embedding。</p>
+<p><img src="/2025/09/03/word-embedding/four.png" srcset="/img/loading.gif" lazyload alt="ELMo"></p>
+<p>这里的输入是word embedding（图中的E），之后进入双向LSTM网络，最小化loss损失，更新向量。（这里我写的不一定准确哈，可以借鉴其他详细的文章~~）</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yifanrensheng/p/13167787.html">【NLP-13】ELMo模型（Embeddings from Language Models） - 忆凡人生 - 博客园</a></p>
+<p>最后，我觉得这个改进思想可以借鉴，把静态的模型改成静态，可以switch A to B，也可以change A。看到chain-of-thought论文中对long CoT进行优化时就有很多方法都是从这两个角度入手的，突然联想到，所以记录一下。</p>
+<p>第一次写NLP相关的文章~加油加油！</p>
 
                 
               </div>
@@ -332,7 +354,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/" class="print-no-link">#心情日记</a>
+        <a href="/tags/NLP/" class="print-no-link">#NLP</a>
       
     </div>
   
@@ -344,8 +366,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>my-broken</div>
-      <div>http://example.com/2025/08/18/my-broken/</div>
+      <div>word-embedding</div>
+      <div>http://example.com/2025/09/03/word-embedding/</div>
     </div>
     <div class="license-meta">
       
@@ -357,7 +379,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月18日</div>
+          <div>2025年9月3日</div>
         </div>
       
       
@@ -389,18 +411,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/24/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/" title="凡人修仙传">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">凡人修仙传</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/16/my-growth/" title="my-growth">
-                        <span class="hidden-mobile">my-growth</span>
+                      <a href="/2025/08/24/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/" title="凡人修仙传">
+                        <span class="hidden-mobile">凡人修仙传</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

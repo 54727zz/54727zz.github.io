@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>word-embedding</title>
+    <link href="/2025/09/03/word-embedding/"/>
+    <url>/2025/09/03/word-embedding/</url>
+    
+    <content type="html"><![CDATA[<p>最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？）</p><p>涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下）</p><p>撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~</p><h2 id="1、one-hot独热编码"><a href="#1、one-hot独热编码" class="headerlink" title="1、one-hot独热编码"></a>1、one-hot独热编码</h2><p>一个非常非常常见的嘉宾——one-hot!!!!</p><p>可以说他是word embedding之间的一个常用手段，将每个词都变成互相正交的向量。</p><p>如果有n个词（n维），那么每个向量就有n-1个0和1个1（能懂吗？？能懂吗？？？）</p><p>每个向量都是正交的，张成一个n维空间。</p><p>也可以这么想，这个向量组可以组成一个单位矩阵E的形状。</p><p><img src="/2025/09/03/word-embedding/one.png" alt="one hot"></p><p>这里其实一个很大的弱点就是他能方便的<strong>表示“独立的单词”</strong>，但<strong>不能表示“上下文”</strong>，而<strong>上下文</strong>是机器理解文本的重要途经。相似和相近的词应该关系更加紧密，即空间上**“位置更近”**。</p><p>独热编码只用到n维中的一维，其他都是0，未免有些浪费。既然我们已经有n维空间了，那么是否能充分利用向量空间，<strong>在高维空间中也表示出彼此之间的距离</strong>呢？</p><p><img src="/2025/09/03/word-embedding/two.png" alt="离散与连续"></p><h2 id="2、word-embedding"><a href="#2、word-embedding" class="headerlink" title="2、word embedding"></a>2、word embedding</h2><p>one-hot的表示方法是离散表示，我们要重点关注的<strong>word2vec是分布式连续表示</strong>。</p><p>Harris 在 1954 年提出的分布假说（ distributional hypothesis）：<strong>上下文相似的词，其语义也相似。</strong></p><p><strong>设有m个单词的单词表，嵌入的向量维度是n</strong>。（m&gt;&gt;n）</p><p>1、很多个单词共同在一个向量空间内，所以他们彼此一定不是线性无关的（否则就是独热编码，张成n维空间了），<strong>一定线性相关</strong>。</p><p>2、整个单词表一定不满秩，r(a1…am) &lt;&#x3D; n &lt;&lt; m</p><p>3、每一维的数都有自己的意义，也可以计算欧式距离来表示两个词之间的含义是否相近。</p><p>比如：</p><p>我们有一个词汇表 <code>m = 50,000</code> 个单词，我们选择用 <code>n = 300</code> 维的向量来表示每个单词。</p><p>训练完成后，你会得到一个 <code>50,000 x 300</code> 的矩阵。这个矩阵的每一行就是一个单词的向量表示。这里的每一个数都是有意义的。</p><p>（哈哈哈哈哈dbq我用画板写了很丑的例子哈哈哈哈哈哈哈哈）</p><p><img src="/2025/09/03/word-embedding/there.png" alt="example"></p><p>我们使用的是现成训练好的词汇表，如： <strong>Google、Stanford、Facebook 的预训练词向量，</strong>  已经基于海量语料训练好了。<strong>我们并不关心这个神经网络的预测结果，我们只关心它的副产物——网络权重，这些权重就是我们想要的词向量。</strong></p><p>然后进一步的话就是佬的文章里提到两种模型（训练方法）：</p><p><a href="https://www.cnblogs.com/Christbao/p/12022218.html">word embedding 精要整理 - Christbao - 博客园</a></p><p>Word2Vec模型中，<strong>主要有Skip-Gram和CBOW两种模型</strong>，从直观上理解，Skip-Gram是给定input word来预测上下文。</p><h2 id="3、ELMo"><a href="#3、ELMo" class="headerlink" title="3、ELMo"></a>3、ELMo</h2><p>想象一下文章中有<strong>多义词的情况</strong>，一个单词有多个意思，也就是说基于多种上下文可能有多种含义，这时候单一的word2vec可能会导致歧义。</p><p>————–2025&#x2F;9&#x2F;1 写累了歇一下（）</p><p>然后就在ELMo一文中解决了这个问题，很像<strong>动态word2vec</strong>，他可以基于不同上下文改变原有的word embedding。</p><p><img src="/2025/09/03/word-embedding/four.png" alt="ELMo"></p><p>这里的输入是word embedding（图中的E），之后进入双向LSTM网络，最小化loss损失，更新向量。（这里我写的不一定准确哈，可以借鉴其他详细的文章~~）</p><p><a href="https://www.cnblogs.com/yifanrensheng/p/13167787.html">【NLP-13】ELMo模型（Embeddings from Language Models） - 忆凡人生 - 博客园</a></p><p>最后，我觉得这个改进思想可以借鉴，把静态的模型改成静态，可以switch A to B，也可以change A。看到chain-of-thought论文中对long CoT进行优化时就有很多方法都是从这两个角度入手的，突然联想到，所以记录一下。</p><p>第一次写NLP相关的文章~加油加油！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>NLP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>凡人修仙传</title>
+    <link href="/2025/08/24/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/"/>
+    <url>/2025/08/24/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/</url>
+    
+    <content type="html"><![CDATA[<p>朋友们暑假好！！</p><p>我真的很喜欢很喜欢杨洋啊……他新演的《凡人修仙传》我觉得非常貌美啊啊啊啊真的非常喜欢看！</p><p>凡人之躯，凡人之心，伪灵根，他本应是修仙界的底层人物。</p><p>何以成事？</p><p>工于心计却不杀人害命，谨慎如斯却不胆怯怕事，有七情六欲却不滋养心魔，目标坚定。</p><h4 id="神手谷·墨居仁"><a href="#神手谷·墨居仁" class="headerlink" title="神手谷·墨居仁"></a>神手谷·墨居仁</h4><h4 id="墨府·墨彩环"><a href="#墨府·墨彩环" class="headerlink" title="墨府·墨彩环"></a>墨府·墨彩环</h4><h4 id="血色禁地·南宫婉"><a href="#血色禁地·南宫婉" class="headerlink" title="血色禁地·南宫婉"></a>血色禁地·南宫婉</h4><h4 id="黄枫谷·筑基"><a href="#黄枫谷·筑基" class="headerlink" title="黄枫谷·筑基"></a>黄枫谷·筑基</h4><p>白药园，每一帧都非常貌美的一集！</p><p>“人常说，筑基之后，所见万物皆有不同。<strong>可我所见，仍是熟悉的景色。</strong> ” 他永远会记住一些美好的时刻，一些美好的人。</p><p>即使修仙的这一生一世，是不断遇见再别离，也便不执念了。</p><p>何为“念头通达”？</p><h4 id="越国·黑煞教之战"><a href="#越国·黑煞教之战" class="headerlink" title="越国·黑煞教之战"></a>越国·黑煞教之战</h4><p>个人觉得很惨烈的一战。韩立+四师兄+赵氏三人，最后四人只剩两人，三人也没保全，可谓死伤惨重。</p><p>靖哥和卫娘（两个很可爱的小宝宝www）俩xql昨天刚看烟花牵小手啊啊啊啊啊只过一夜便天人两隔……</p><p>“靖哥，你看到了吗？这恶人的血，也能染出这么漂亮的颜色”</p><p>为啥感觉七派听起来很高端大气上档次但是人又少又菜？？为啥打不过邪魔外道？？那吸人的功真的好吓人qvq</p><h4 id="黄枫谷·撤退之战"><a href="#黄枫谷·撤退之战" class="headerlink" title="黄枫谷·撤退之战"></a>黄枫谷·撤退之战</h4><p>2025&#x2F;8&#x2F;29&#x2F; 22：05</p><p>修仙之人，当真枉道？</p><p>元婴老祖们，皆有无上修行，方至此境界，这固然也是一路艰险，步步谨慎。</p><p>可这世间便没有其他关系了吗？凡人的生生世世，低阶弟子的苦苦哀求，门下功劳卓著修士的利益交换，便不值一提吗？这便是念头通达？还是蔑视一切？</p><p>我想，若是韩立，待到此时，他不会如此。他将是有情有念的，心性纯良的，怜悯众生的。因他自凡人走来，他知这世间什么珍贵，什么不配。</p><p>你这云露老祖，当真可恶。这神仙泯灭众人的游戏，当真有趣。</p><p>化元修士战死，原来是寻死。只需逼那老祖出手，便是赢了。</p><p>那浮云子一生豁达，为救弟子性命，以一敌三，也便这样没了。</p><p>忘语妄语，这四人吵吵闹闹了这么久，一桌麻将的众人，终究是凑不齐了。</p><p>他一生风趣幽默，是谷中第一个结单男修士。黄枫谷和师姐，都是要他拼命守护的。</p><p>世间的规则铁律，我又如何不知。可若是这样活着，我不如死去。</p><p>我李化元，爱她数载。我只要她好好的活着，便足矣。为此，我的性命和我这一生，都不重要了。师姐，我一直有个念头，你知道吗，是你。不过，好像来不及说了，师姐，别哭，别哭……</p><p>（哭死了…….李化元死的这集真的给我哇哇大哭）</p><p>沉默自保，战前倒戈，黄枫谷沦为火海，焦土一片。终究是错付了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>心情日记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>my-broken</title>
     <link href="/2025/08/18/my-broken/"/>
     <url>/2025/08/18/my-broken/</url>
