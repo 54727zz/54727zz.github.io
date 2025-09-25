@@ -19,27 +19,22 @@
   <meta name="author" content="GoZ_Zhou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？） 涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下） 撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~ 1">
+    <meta name="description" content="保研er不能有梦校情结其实从未想过有一天我会为一个学校如此流泪、痛苦。 我是一个自诩随遇而安的人，保研的去向从一开始便也没报太高期望，只是有地域偏好，和对title的向往罢了。 梦校于我而言，是3月令人惊喜的缘起，半年时间科研的磨合交流，是每次打来电话笑着和我聊天的老师，教我很多也说话很萌的学长，是地图上搜了一次又一次不近又不远的地方，接连两次被拒而没法郑重地来到的地方。 我没法想象有一天我会在看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="word-embedding">
-<meta property="og:url" content="http://example.com/2025/09/03/word-embedding/index.html">
+<meta property="og:title" content="my-dream">
+<meta property="og:url" content="http://example.com/2025/09/25/my-dream/index.html">
 <meta property="og:site_name" content="一只粥">
-<meta property="og:description" content="最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？） 涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下） 撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~ 1">
+<meta property="og:description" content="保研er不能有梦校情结其实从未想过有一天我会为一个学校如此流泪、痛苦。 我是一个自诩随遇而安的人，保研的去向从一开始便也没报太高期望，只是有地域偏好，和对title的向往罢了。 梦校于我而言，是3月令人惊喜的缘起，半年时间科研的磨合交流，是每次打来电话笑着和我聊天的老师，教我很多也说话很萌的学长，是地图上搜了一次又一次不近又不远的地方，接连两次被拒而没法郑重地来到的地方。 我没法想象有一天我会在看">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/one.png">
-<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/two.png">
-<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/there.png">
-<meta property="og:image" content="http://example.com/2025/09/03/word-embedding/four.png">
-<meta property="article:published_time" content="2025-09-03T07:49:16.000Z">
-<meta property="article:modified_time" content="2025-09-03T08:01:19.742Z">
+<meta property="article:published_time" content="2025-09-25T04:48:33.000Z">
+<meta property="article:modified_time" content="2025-09-25T04:52:10.348Z">
 <meta property="article:author" content="GoZ_Zhou">
-<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="心情日记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2025/09/03/word-embedding/one.png">
   
   
   
-  <title>word-embedding - 一只粥</title>
+  <title>my-dream - 一只粥</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="word-embedding"></span>
+            <span id="subtitle" data-typed-text="my-dream"></span>
           
         </div>
 
@@ -233,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-09-03 15:49" pubdate>
-          2025年9月3日 下午
+        <time datetime="2025-09-25 12:48" pubdate>
+          2025年9月25日 下午
         </time>
       </span>
     
@@ -245,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          525 字
         
       </span>
     
@@ -256,7 +251,7 @@
         
         
         
-          10 分钟
+          5 分钟
         
       </span>
     
@@ -302,46 +297,24 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">word-embedding</h1>
+            <h1 id="seo-header">my-dream</h1>
             
             
               <div class="markdown-body">
                 
-                <p>最近在复习线性代数，学到线性相关、线性无关和向量空间这里，突然想到word embedding训练出来的向量是什么样呢？是否满秩？是n维空间中的m维向量（m&lt;&#x3D;n吗？）</p>
-<p>涉及概念：正交向量、正交矩阵、线性相关与线性无关、单位矩阵、秩、向量组······（哈哈哈像我一样忘了的同学可以去理解一下）</p>
-<p>撰写此文的初衷是对于矩阵计算如果没有形状的话会不太号想象，所以实际化一些，便于理解~</p>
-<h2 id="1、one-hot独热编码"><a href="#1、one-hot独热编码" class="headerlink" title="1、one-hot独热编码"></a>1、one-hot独热编码</h2><p>一个非常非常常见的嘉宾——one-hot!!!!</p>
-<p>可以说他是word embedding之间的一个常用手段，将每个词都变成互相正交的向量。</p>
-<p>如果有n个词（n维），那么每个向量就有n-1个0和1个1（能懂吗？？能懂吗？？？）</p>
-<p>每个向量都是正交的，张成一个n维空间。</p>
-<p>也可以这么想，这个向量组可以组成一个单位矩阵E的形状。</p>
-<p><img src="/2025/09/03/word-embedding/one.png" srcset="/img/loading.gif" lazyload alt="one hot"></p>
-<p>这里其实一个很大的弱点就是他能方便的<strong>表示“独立的单词”</strong>，但<strong>不能表示“上下文”</strong>，而<strong>上下文</strong>是机器理解文本的重要途经。相似和相近的词应该关系更加紧密，即空间上**“位置更近”**。</p>
-<p>独热编码只用到n维中的一维，其他都是0，未免有些浪费。既然我们已经有n维空间了，那么是否能充分利用向量空间，<strong>在高维空间中也表示出彼此之间的距离</strong>呢？</p>
-<p><img src="/2025/09/03/word-embedding/two.png" srcset="/img/loading.gif" lazyload alt="离散与连续"></p>
-<h2 id="2、word-embedding"><a href="#2、word-embedding" class="headerlink" title="2、word embedding"></a>2、word embedding</h2><p>one-hot的表示方法是离散表示，我们要重点关注的<strong>word2vec是分布式连续表示</strong>。</p>
-<p>Harris 在 1954 年提出的分布假说（ distributional hypothesis）：<strong>上下文相似的词，其语义也相似。</strong></p>
-<p><strong>设有m个单词的单词表，嵌入的向量维度是n</strong>。（m&gt;&gt;n）</p>
-<p>1、很多个单词共同在一个向量空间内，所以他们彼此一定不是线性无关的（否则就是独热编码，张成n维空间了），<strong>一定线性相关</strong>。</p>
-<p>2、整个单词表一定不满秩，r(a1…am) &lt;&#x3D; n &lt;&lt; m</p>
-<p>3、每一维的数都有自己的意义，也可以计算欧式距离来表示两个词之间的含义是否相近。</p>
-<p>比如：</p>
-<p>我们有一个词汇表 <code>m = 50,000</code> 个单词，我们选择用 <code>n = 300</code> 维的向量来表示每个单词。</p>
-<p>训练完成后，你会得到一个 <code>50,000 x 300</code> 的矩阵。这个矩阵的每一行就是一个单词的向量表示。这里的每一个数都是有意义的。</p>
-<p>（哈哈哈哈哈dbq我用画板写了很丑的例子哈哈哈哈哈哈哈哈）</p>
-<p><img src="/2025/09/03/word-embedding/there.png" srcset="/img/loading.gif" lazyload alt="example"></p>
-<p>我们使用的是现成训练好的词汇表，如： <strong>Google、Stanford、Facebook 的预训练词向量，</strong>  已经基于海量语料训练好了。<strong>我们并不关心这个神经网络的预测结果，我们只关心它的副产物——网络权重，这些权重就是我们想要的词向量。</strong></p>
-<p>然后进一步的话就是佬的文章里提到两种模型（训练方法）：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Christbao/p/12022218.html">word embedding 精要整理 - Christbao - 博客园</a></p>
-<p>Word2Vec模型中，<strong>主要有Skip-Gram和CBOW两种模型</strong>，从直观上理解，Skip-Gram是给定input word来预测上下文。</p>
-<h2 id="3、ELMo"><a href="#3、ELMo" class="headerlink" title="3、ELMo"></a>3、ELMo</h2><p>想象一下文章中有<strong>多义词的情况</strong>，一个单词有多个意思，也就是说基于多种上下文可能有多种含义，这时候单一的word2vec可能会导致歧义。</p>
-<p>————–2025&#x2F;9&#x2F;1 写累了歇一下（）</p>
-<p>然后就在ELMo一文中解决了这个问题，很像<strong>动态word2vec</strong>，他可以基于不同上下文改变原有的word embedding。</p>
-<p><img src="/2025/09/03/word-embedding/four.png" srcset="/img/loading.gif" lazyload alt="ELMo"></p>
-<p>这里的输入是word embedding（图中的E），之后进入双向LSTM网络，最小化loss损失，更新向量。（这里我写的不一定准确哈，可以借鉴其他详细的文章~~）</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yifanrensheng/p/13167787.html">【NLP-13】ELMo模型（Embeddings from Language Models） - 忆凡人生 - 博客园</a></p>
-<p>最后，我觉得这个改进思想可以借鉴，把静态的模型改成静态，可以switch A to B，也可以change A。看到chain-of-thought论文中对long CoT进行优化时就有很多方法都是从这两个角度入手的，突然联想到，所以记录一下。</p>
-<p>第一次写NLP相关的文章~加油加油！</p>
+                <h1 id="保研er不能有梦校情结"><a href="#保研er不能有梦校情结" class="headerlink" title="保研er不能有梦校情结"></a>保研er不能有梦校情结</h1><p>其实从未想过有一天我会为一个学校如此流泪、痛苦。</p>
+<p>我是一个自诩随遇而安的人，保研的去向从一开始便也没报太高期望，只是有地域偏好，和对title的向往罢了。</p>
+<p>梦校于我而言，是3月令人惊喜的缘起，半年时间科研的磨合交流，是每次打来电话笑着和我聊天的老师，教我很多也说话很萌的学长，是地图上搜了一次又一次不近又不远的地方，接连两次被拒而没法郑重地来到的地方。</p>
+<p>我没法想象有一天我会在看到如何严格筛选下我被排除在外的名单时，在老师疲惫而无奈地说尽力推了却也没办法时，在无数次学长说双向奔不赴时，我会痛苦到举着手机，泪流满面。</p>
+<p>我说我以前不这样的，我没有梦校情结。可是遇到了你们，我发现我原来这么喜欢且向往这个地方。</p>
+<p>可我不是赌徒，我没有勇气在坚硬的门槛面前高傲地选择相信那微不足道的可能性。有一个还不错的学校对于我来说，已是礼物。</p>
+<p>于是，这个梦要在今天结束了。</p>
+<p>我不知道未来是如何的，如果见到了白月光，是否其他一切都只是凑合。</p>
+<p>我也不想设限我在即将去往的另一个学校里的生活，如果仍有缘分，是否在某天依然会笑着相见。</p>
+<p>我相信无论我去哪里，我都会越来越好，像那些一路上走来给我帮助、对我祝福的人那样祝福的，越来越好。谢谢你们。</p>
+<p>我依然会坚定的相信自己，一定会越来越好。我们一定会的。</p>
+<p>至于所谓梦校，他的名字，便留在那个无数次期盼回望的梦中吧。</p>
+<p>“期待与你在樱花树下相遇。”</p>
 
                 
               </div>
@@ -354,7 +327,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/NLP/" class="print-no-link">#NLP</a>
+        <a href="/tags/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/" class="print-no-link">#心情日记</a>
       
     </div>
   
@@ -366,8 +339,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>word-embedding</div>
-      <div>http://example.com/2025/09/03/word-embedding/</div>
+      <div>my-dream</div>
+      <div>http://example.com/2025/09/25/my-dream/</div>
     </div>
     <div class="license-meta">
       
@@ -379,7 +352,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年9月3日</div>
+          <div>2025年9月25日</div>
         </div>
       
       
@@ -411,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/09/21/my-3years/" title="my-3years">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">my-3years</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/24/%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0/" title="凡人修仙传">
-                        <span class="hidden-mobile">凡人修仙传</span>
+                      <a href="/2025/09/21/my-3years/" title="my-3years">
+                        <span class="hidden-mobile">my-3years</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
